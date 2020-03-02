@@ -100,7 +100,7 @@ const sassHandler = () => {
             .pipe(sass())
             .pipe(autoprefixer())
             .pipe(cssmin())
-            .pipe(gulp.dest('./dist/sass'))
+            .pipe(gulp.dest('./dist/css'))
 }
 
 // 9. 自动监控文件
