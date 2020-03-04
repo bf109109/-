@@ -67,6 +67,11 @@ const libHandler = () => {
   return gulp.src('./src/lib/**')
              .pipe(gulp.dest('./dist/lib'))
 }
+//json 文件
+const jsonHandler = () => {
+  return gulp.src('./src/json/**')
+             .pipe(gulp.dest('./dist/json'))
+}
 
 // 7. 书写一个任务, 自动删除 dist 目录
 const delHandler = () => {
@@ -80,7 +85,7 @@ const serverHandler = () => {
              .pipe(webserver({ // 需要一些配置项
                host: 'www.wusunyu.com', // 域名, 这个域名可以自定义
                port: 8080, // 端口号, 0 ~ 65535, 尽量不适用 0 ~ 1023
-               open: './pages/index.html', // 你默认打开的首页, 从 dist 下面的目录开始书写
+               open: './pages/login.html', // 你默认打开的首页, 从 dist 下面的目录开始书写
                livereload: true, // 自动刷新浏览器 - 热重启
                // 所有的代理配置都在 proxies 里面
                proxies: [
@@ -114,6 +119,7 @@ const watchHandler = () => {
   gulp.watch('./src/lib/**', libHandler)
   gulp.watch('./src/images/**', imgHandler)
   gulp.watch('./src/sass/*.scss', sassHandler)
+  gulp.watch('./src/json/**',jsonHandler)
 }
 
 
@@ -128,7 +134,7 @@ const watchHandler = () => {
 //   要在删除完毕 dist 以后, 在执行 css/js/html/... 之类的压缩转移任务
 module.exports.default = gulp.series(
   delHandler,
-  gulp.parallel(cssHandler, jsHandler, htmlHandler, imgHandler, libHandler, sassHandler),
+  gulp.parallel(cssHandler, jsHandler, htmlHandler, imgHandler, libHandler, sassHandler,jsonHandler),
   serverHandler,
   watchHandler,
   

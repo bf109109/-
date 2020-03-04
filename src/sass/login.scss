@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul li ol dl dd dt {
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+.head{
+    width: 100%;
+    height: 67px;
+    background: black;
+    .head-con{
+        width: 970px;
+        height: 67px;
+        margin: 0 auto;
+        .logo{
+            width: 143px;
+            height: 53px;
+            float: left;
+            margin-right: 20px;
+            >img{
+                margin-top: 17px;
+            }
+        }
+        .logo-r{
+            height: 67px;
+            float: left;
+            width: 150px;
+            >span:nth-child(1){
+                font-size: 18px;
+                color: white;
+                line-height: 67px;
+            }
+            >span:nth-child(2){
+                color: white;
+                font-weight: 500;
+                line-height: 67px;
+                margin-left: 20px;
+                margin-bottom: 0;
+                font-size: 18px;
+                
+            }
+        }
+
+
+    }
+}
+//main
+.main{
+    height: 854px;
+    width: 100%;
+    background: #f2f2f2;
+    .main-con{
+        width: 960px;
+        height: 854px;
+        margin: 0 auto;
+        //margin-top: 30px;
+        .main-top{
+            height: 35px;
+            width: 960px;
+            margin-top: 30px;
+            >a:nth-child(1){
+                display: inline-block;
+                position: relative;
+                background: #b40707;
+                margin-right: 12px;
+                color: white;
+                font-size: 16px;
+                width: 146px;
+                height: 35px;
+                text-align: center;
+                line-height: 35px;
+                >i{
+                    display: inline-block;
+                    position: absolute;
+                    top: 6px;
+                    left: 26px;
+                    width: 14px;
+                    height: 22px;
+                    background: url(https://id1.cloud.huawei.com/CAS/up/idmw_rss_46/css/portal/register_rss_EMUIV6/images/reg-img01.png) no-repeat;
+                    background-position: 0 -18px;
+                }
+                >span{
+                    margin-left: 30px;
+                }
+            }
+            >a:nth-child(2){
+                display: inline-block;
+                position: relative;
+                background: #ccc;
+                width: 146px;
+                height: 35px;
+                line-height: 35px;
+                font-size: 16px;
+                color: white;
+                text-align: center;
+                >i{
+                    display: inline-block;
+                    position: absolute;
+                    top: 9px;
+                    left: 16px;
+                    width: 22px;
+                    height: 17px;
+                    background: url(https://id1.cloud.huawei.com/CAS/up/idmw_rss_46/css/portal/register_rss_EMUIV6/images/reg-img01.png) no-repeat;
+                    background-position: 0 0;
+                }
+                >span{
+                    margin-left: 30px;
+                }
+            }
+            >p{
+                height: 35px;
+                font-size: 14px;
+                line-height: 35px;
+                width: 130px;
+                float: right;
+                >a{
+
+                }
+            }
+        }
+
+    }
+}
+//main-text 内容区
+.main-text{
+    // width: 960px;
+    // height: 670px;
+    padding: 30px 270px;
+    background: white;
+    .title{
+        text-align: center;
+        margin: 10px 0 30px;
+        >div:nth-child(1){
+            height: 24px;
+            font-size: 24px;
+            color: #333;
+            line-height: 24px
+        }
+        >div:nth-child(2){
+            font-size: 16px;
+            margin-top: 12px;
+            color: #999;
+            height: 16px;
+            line-height: 16px;
+
+        }
+    }
+
+}
