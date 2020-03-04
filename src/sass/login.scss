@@ -5,8 +5,14 @@
 ul li ol dl dd dt {
     list-style: none;
 }
+// div{
+//     box-sizing: content-box;
+// }
 a{
     text-decoration: none;
+}
+input,a:hover{
+    outline: 0;
 }
 
 .head{
@@ -54,6 +60,7 @@ a{
     height: 854px;
     width: 100%;
     background: #f2f2f2;
+    padding-top: 30px;
     .main-con{
         width: 960px;
         height: 854px;
@@ -62,7 +69,7 @@ a{
         .main-top{
             height: 35px;
             width: 960px;
-            margin-top: 30px;
+            // margin-top: 30px;
             >a:nth-child(1){
                 display: inline-block;
                 position: relative;
@@ -151,4 +158,490 @@ a{
         }
     }
 
+}
+//选择国家
+.guojia{
+    
+    margin-top: 20px;
+    background: #f7f7f7;
+    height: 44px;
+    border: 1px solid #d9d9d9;
+    border-radius: 21px;
+    position: relative;
+    line-height: 1;
+    font-size: 14px;
+    color: #333;
+    >.gj-left{
+        text-align: justify;
+        text-align-last: justify;
+        height: 100%;
+        border-right: 1px solid #d9d9d9;
+        padding: 0 16px;
+        line-height: 42px;
+        width : 123px;
+        float: left
+    }
+    >.gj-right{
+        width: 295px;
+        height: 44px;
+        float: right;
+        position: relative;
+        >span{
+            font-size: 16px;
+            vertical-align: middle;
+            display: inline-block;
+            height: 42px;
+            line-height: 42px;
+            padding: 0 16px;
+
+        }
+        >input{
+            height: 100%;
+            width: 100%;
+            border: 0;
+            padding: 0 16px;
+            background: transparent;
+        }
+        div{
+            position: absolute;
+            top: 17px;
+            width: 12px;
+            height: 6px;
+            background-image: url(https://id1.cloud.huawei.com/CAS/up/idmw_rss_46/css/common/images/triangle_green.png);
+            background-size: cover;
+            margin-left: 8px;
+            display: inline-block;
+            vertical-align: middle;
+            cursor: pointer;
+            right: 16px;
+
+        }
+    }
+}
+//手机号码
+.sj-num{
+    
+    margin-top: 20px;
+    background: #f7f7f7;
+    height: 44px;
+    border: 1px solid #d9d9d9;
+    border-radius: 21px;
+    position: relative;
+    line-height: 1;
+    font-size: 14px;
+    color: #333;
+    >.sj-left{
+        text-align: justify;
+        text-align-last: justify;
+        height: 100%;
+        border-right: 1px solid #d9d9d9;
+        padding: 0 16px;
+        line-height: 1;
+        width : 123px;
+        float: left;
+        >input{
+            height: 100%;
+            width: 100%;
+            border: 0;
+            padding: 0 16px;
+            background: transparent;
+        }
+        >span{
+            font-size: 16px;
+            line-height: 42px;
+            cursor: pointer;
+            text-align: justify;
+            vertical-align: middle;
+            display: inline-block;
+            width: 75%;
+            min-width: 70px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        >div{
+            width: 12px;
+            height: 6px;
+            background-image: url(https://id1.cloud.huawei.com/CAS/up/idmw_rss_46/css/common/images/triangle_green.png);
+            background-size: cover;
+            margin-left: 8px;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 42px;
+        }
+    }
+    >.sj-right{
+        width: 280px;
+        height: 42px;
+        float: left;
+        position: relative;
+        >label{
+            display: block;
+            position: absolute;
+            cursor: text;
+            float: left;
+            z-index: 2;
+            padding-left: 0px;
+            height: 42px;
+            margin: 0;
+            >div{
+                border: none;
+                background: transparent;
+                cursor: text;
+                margin: 2px;
+                color: rgb(204, 204, 204);
+                height: 42px;
+                line-height: 42px;
+                width: 100%;
+                padding: 0 12px;
+                margin: 0;
+            }
+        }
+        >input{
+            height: 100%;
+            width: 100%;
+            border: 0;
+            padding: 0 16px;
+            background: transparent;
+            line-height: 42px;
+            display: block;
+            outline: 0;
+        }
+    }
+}
+//验证
+.yanzheng{
+    background: #f7f7f7;
+    height: 44px;
+    border: 1px solid #d9d9d9;
+    border-radius: 21px;
+    position: relative;
+    margin-top: 20px;
+    width: 420px;
+    
+    >.anniu{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        border-radius: 50%;
+        background: skyblue;
+       >.anniu1{
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: blue;
+        margin: 9px;
+       }
+
+    }
+    >div{
+        height: 42px;
+        width: 342px;
+        position: absolute;
+        top: 0;
+        left: 50px;
+        line-height: 42px;
+        font-size: 14px;
+        color: #666;
+        >span{
+            line-height: 42px;
+            font-size: 14px;
+            color: #666;
+            white-space: nowrap;
+            text-align: left;
+        }
+    }
+
+}
+//短信验证
+.duanxin{
+    margin-top: 20px;
+    background: #f7f7f7;
+    height: 44px;
+    border: 1px solid #d9d9d9;
+    border-radius: 21px;
+    position: relative;
+    line-height: 1;
+    font-size: 14px;
+    color: #333;
+    >.dx-left{
+        text-align: justify;
+        text-align-last: justify;
+        height: 100%;
+        border-right: 1px solid #d9d9d9;
+        padding: 0 16px;
+        line-height: 42px;
+        width : 123px;
+        float: left;
+            }
+    >.dx-right{
+        width: 280px;
+        height: 42px;
+        float: left;
+        position: relative;
+        >label{
+            display: block;
+            position: absolute;
+            cursor: text;
+            float: left;
+            z-index: 2;
+            padding-left: 0px;
+            height: 42px;
+            margin: 0;
+            >div{
+                border: none;
+                background: transparent;
+                cursor: text;
+                margin: 2px;
+                color: rgb(204, 204, 204);
+                height: 42px;
+                line-height: 42px;
+                width: 100%;
+                padding: 0 12px;
+                margin: 0;
+            }
+        }
+        >input:nth-of-type(1){
+            height: 100%;
+            width: 190px;
+            border: 0;
+            padding: 0 16px;
+            background: transparent;
+            line-height: 42px;
+            display: block;
+            outline: 0;
+        }
+        >input:nth-of-type(2){
+            height: 100%;
+            width: 80px;
+            border: 0;
+            right: 5px;
+            top: 0;
+            position: absolute;
+            background: transparent;
+            line-height: 42px;
+            display: block;
+            outline: 0;
+            //float: right;
+            cursor: pointer;;
+            color: blue;
+        }
+    }
+}
+//密码
+.password{
+    width: 420px;
+    height: 44px;
+    margin-top: 20px;
+    background: #f7f7f7;
+    
+    border: 1px solid #d9d9d9;
+    border-radius: 21px;
+    position: relative;
+    .pw-left{
+        width: 123px;
+        height: 100%;
+        padding: 0 16px;
+        border-right: 1px solid #d9d9d9;
+        text-align: justify;
+        text-align-last: justify;
+        line-height: 42px;
+        float: left;
+
+    }
+    .pw-right{
+        width: 280px;
+        height: 100%;
+        float: left;
+        >label{
+            height: 100%;
+            width: 106px;
+            display: block;
+            position: absolute;
+            cursor: text;
+            float: left;
+            >div{
+                line-height: 42px;
+                border: none;
+                background: transparent;
+                cursor: text;
+                margin-left: 16px;
+                color: rgb(204, 204, 204);
+            }
+        }
+        >input{
+            height: 100%;
+            width: 100%;
+            border: 0;
+            margin: 0 16px;
+            line-height: 42px;
+            background: transparent;
+        }
+    }
+}
+//确认密码
+.queren-password{
+    width: 420px;
+    height: 44px;
+    margin-top: 20px;
+    background: #f7f7f7;
+    
+    border: 1px solid #d9d9d9;
+    border-radius: 21px;
+    position: relative;
+    .qr-pw-left{
+        width: 123px;
+        height: 100%;
+        padding: 0 16px;
+        border-right: 1px solid #d9d9d9;
+        text-align: justify;
+        text-align-last: justify;
+        line-height: 42px;
+        float: left;
+
+    }
+    .qr-pw-right{
+        width: 280px;
+        height: 100%;
+        float: left;
+        >label{
+            height: 100%;
+            width: 130px;
+            display: block;
+            position: absolute;
+            cursor: text;
+            float: left;
+            >div{
+                line-height: 42px;
+                border: none;
+                background: transparent;
+                cursor: text;
+                margin-left: 16px;
+                color: rgb(204, 204, 204);
+            }
+        }
+        >input{
+            height: 100%;
+            width: 100%;
+            border: 0;
+            margin: 0 16px;
+            line-height: 42px;
+            background: transparent;
+        }
+    }
+}
+//出生日期
+.data{
+    width: 420px;
+    height: 44px;
+    margin-top: 20px;
+    background: #f7f7f7;
+    
+    border: 1px solid #d9d9d9;
+    border-radius: 21px;
+    position: relative;
+    .data-left{
+        width: 123px;
+        height: 100%;
+        padding: 0 16px;
+        border-right: 1px solid #d9d9d9;
+        text-align: justify;
+        text-align-last: justify;
+        line-height: 42px;
+        float: left;
+    }
+    .data-right{
+        width: 280px;
+        height: 100%;
+        padding: 0 16px;
+        position: relative;
+        line-height: 42px;
+        float: left;
+        >.data-chose{
+            width: 200px;
+             height: 100%;
+            
+            >.nian{
+                margin-top: 12px;
+                line-height: 20px;
+                margin-right: 10px;
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+                >div{
+                    width: 12px;
+                    height: 6px;
+                    background-image: url(https://id1.cloud.huawei.com/CAS/up/idmw_rss_46/css/common/images/triangle_green.png);
+                    background-size: cover;
+                    margin-left: 8px;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+            >.yue{
+                margin-top: 12px;
+                line-height: 20px;
+                margin-right: 10px;
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+                >div{
+                    width: 12px;
+                    height: 6px;
+                    background-image: url(https://id1.cloud.huawei.com/CAS/up/idmw_rss_46/css/common/images/triangle_green.png);
+                    background-size: cover;
+                    margin-left: 8px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    }
+                }
+            >.ri{
+                //margin-right: 10px;
+                margin-top: 12px;
+                line-height: 20px;
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+                >div{
+                    width: 12px;
+                    height: 6px;
+                    background-image: url(https://id1.cloud.huawei.com/CAS/up/idmw_rss_46/css/common/images/triangle_green.png);
+                    background-size: cover;
+                    margin-left: 8px;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+    .data-help{
+        background-image: url(https://id1.cloud.huawei.com/CAS/up/idmw_rss_46/css/portal/register_rss_EMUIV6/images/help.png);
+        width: 16px;
+        height: 16px;
+        background-size: 16px;
+        position: absolute;
+        right: -28px;
+        top: 14px;
+    }
+
+}
+//注册
+.zhuce{
+    width: 420px;
+    height: 44px;
+    margin-top: 20px;
+    
+    >input{
+        background-color: #b40707;
+        border: 0;
+        color: #fff;
+        display: block;
+        width: 200px;
+        height: 40px;
+        cursor: pointer;
+        margin: 0 auto;
+        border-radius: 20px;
+    }
 }
