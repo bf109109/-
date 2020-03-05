@@ -1,0 +1,275 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body, button, input, select, textarea {
+    font: 12px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+
+ul,li,ol,dl,dd,dt{
+    list-style: none;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+input,a:hover{
+    outline: none;
+}
+div{
+    box-sizing: content-box;
+}
+.detail{
+    width: 100%;
+    
+    margin-top: 50px;
+    background: #cccccc;
+    
+    >.detail-con{
+        width: 1200px;
+        height: 100%;
+        margin: 0 auto;
+        >.detail-top{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 100%;
+            >a{
+                color: #666;
+            }
+        }
+    }
+}
+.dt-main{
+    width: 1200px;
+    height: 690px;
+    background: white;
+    >.m-left{
+        float: left;
+        width: 450px;
+        height: 100%;
+        >.photo-container{
+            width: 450px;
+            height: 450px;
+            position: relative;
+            >.pt-c{
+                width: 450px;
+                height: 450px;
+                >img{
+                    width: 100%;
+                    height: 100%;
+                }
+                >.ydfk{
+                    width: 200px;
+                    height: 200px;
+                    background: #ccc;
+                    opacity: 0.5;
+                    position: absolute;
+                    display: block;
+    
+                }
+                
+            }
+            .pt-datu{
+                position: absolute;
+                left: 460px;
+                top: 0;
+                width: 450px;
+                height: 450px;
+                overflow: hidden;
+                display: none;
+                >img{
+                    position: absolute;
+                    z-index: 33;
+                }
+            }
+            
+           
+        }
+        >.pt-bottom{
+            width: 450px;
+            height: 68px;
+            margin-top: 18px;
+            position: relative;
+            >div{
+                width: 370px;
+                height: 68px;
+                margin-left: 40px;
+                overflow: hidden;
+                position: relative;
+                >ul{
+                width: 500%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                >li{
+                    float: left;
+                    padding: 0 3px;
+                    >a{
+                        display: block;
+                        width: 66px;
+                        height: 66px;
+                        border: 1px solid #fff;
+                        >img{
+                            display: block;
+                            vertical-align: top;
+                            width: 60px;
+                            height: 60px;
+                            margin: 3px 0 0 3px;
+                        }
+                    }
+                }
+                }
+            }
+            >a:nth-of-type(1){
+                position: absolute;
+                top: 0;
+                width: 30px;
+                height: 68px;
+                &:before{
+                    content: "";
+                        width: 30px;
+                        height: 30px;
+                        display: block;
+                        margin-top: 19px;
+                        background: url(https://res8.vmallres.com/20200122/images/echannel/icon/icon50.png) no-repeat -48px -29px;
+                }
+            }
+            >a:nth-of-type(2){
+                position: absolute;
+                top: 0;
+                width: 30px;
+                height: 68px;
+                right: 0;
+                &:before{
+                    content: "";
+                    width: 30px;
+                    height: 30px;
+                    display: block;
+                    margin-top: 19px;
+                    background: url(https://res8.vmallres.com/20200122/images/echannel/icon/icon50.png) no-repeat -78px -29px;
+                }
+            }
+        }
+
+    }
+    .m-right{
+        float: right;
+        width: 700px;
+        height: 100%;
+    }
+
+}
+.m-right{
+    >h1{
+        font-size: 21px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        line-height: 30px;
+    }
+    >div{
+        font-size: 14px;
+        // padding-right: 40px;
+        margin-bottom: 12px;
+        position: relative;
+        top: -3px;
+        line-height: 20px;
+        >span:nth-of-type(1){
+            margin-right: 15px;
+            color: #ca141d;
+            line-height: 29px;
+            font-size: 14px;
+        }
+    }
+}
+.pro-info{
+    width: 100%;
+    height: 117px;
+    background: #f5f5f5;
+    padding-top: 14px;
+    padding-bottom: 3px;
+    margin-bottom: 14px;
+    >.price{
+        height: 30px;
+        width: 100%;
+       padding-bottom: 5px;
+       >div:nth-child(1){
+           height: 100%;
+           float: left;
+            width: 85px;
+            text-indent: 10px;
+            line-height: 30px;
+       }
+       >div:nth-child(2){
+           width: 142px;
+           height: 30px;
+           line-height: 30px;
+           float: left;
+           >span{
+            color: #ca141d;
+            padding-right: 3px;
+            font-size: 24px;
+           }
+       }
+    }
+
+}
+.chuxiao{
+    width: 100%;
+    height: 66px;
+    >.cx-l{
+        width: 85px;
+        height: 100%;
+        line-height: 30px;
+        float: left;
+        text-indent: 10px;
+    }
+    >.cx-r{
+        width: 600px;
+        height: 100%;
+        float: left;
+
+    }
+}
+.fuwu{
+    width: 100%;
+    line-height: 24px;
+    height: 20px;
+    >label{
+        display: block;
+        float: left;
+        
+        width: 85px;
+        text-indent: 10px;
+    }
+    >ul{
+        width: 614px;
+        line-height: 24px;
+        float: left;
+        >li{
+            
+            display: inline-block;
+            margin-right: 12px;
+            position: relative;
+            padding-left: 18px;
+            line-height: 18px;
+        }
+    }
+}
+.sp-id{
+    margin-bottom: 5px;
+    height: 20px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    >label{
+        float: left;
+        width: 85px;
+        text-indent: 10px;
+        line-height: 18px;
+        
+    }
+    >div{
+        float: left;
+
+    }
+}

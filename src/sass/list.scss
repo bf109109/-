@@ -302,5 +302,140 @@ div{
         }
     }
 }
+.content{
+    width: 1200px;
+    margin-top: 20px;
+    
+    >ul{
+        // margin-left: -12px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        >li{
+            width: 240px;
+            height: 350px;
+            
+            margin-bottom: 12px;
+            >div{
+                width: 200px;
+                height: 350px;
+                background: white;
+                margin: 0 auto;
+                position: relative;
+                >a{
+                    display: block;
+                    cursor: pointer;
+                    >p:nth-child(1){
+                        text-align: center;
+                        padding-top: 30px;
+                        height: 210px;
+                        >img{
+                            vertical-align: top;
+                            width: 180px;
+                            height: 180px;
+                            border: 0 none;
+                        }
+                    }
+                    >p:nth-child(2){
+                        line-height: 20px;
+                        overflow: hidden;
+                        color: #333;
+                        font-size: 14px;
+                        max-height: 40px;
+                        margin-top: 8px;
+                        margin-bottom: 8px;
+                        text-overflow: ellipsis;
+                    }
+                    >p:nth-child(3){
+                        margin-bottom: 8px;
+                        font-size: 18px;
+                        height: 24px;
+                        line-height: 24px;
+                        >b{
+                            font-weight: normal;
+                            line-height: 24px;
+                            font-size: 16px;
+                            float: left;
+                            color: #ca141d;
+                        }
+                        >span{
+                                                                                width: 58px;
+                                height: 14px;
+                                line-height: 14px;
+                                font-size: 12px;
+                                text-align: center;
+                                color: #68beff;
+                                border: 1px solid #84c9fd;
+                                float: left;
+                                border-radius: 10px;
+                                margin-left: 4px;
+                                margin-top: 4px;
+                        }
+                    }
+                    >p:nth-child(4){
+                        margin-bottom: 8px;
+                        height: 16px;
+                        overflow: hidden;
+                        font-size: 14px;
+                        >span{
+                            padding: 0 5px;
+                            line-height: 14px;
+                            text-align: center;
+                            color: #ca141d;
+                            border: 1px solid #d5434a;
+                            float: left;
+                            margin-right: 4px;
+                        }
+                    }
+                    >p:nth-child(5){
+                        color: #999;
+                        height: 14px;
+                        line-height: 14px;
+                        overflow: hidden;
+                        >em{
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 14px;
+                            margin-right: 8px;
+                            >span{
+                                font-style: normal;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                    >p:nth-child(6){
+                        position: absolute;
+                        width: 100%;
+                        top: 0;
+                        left: 0;
+                        text-align: center;
+                        >span{
+                            display: inline-block;
+                            padding: 0 8px;
+                            margin: 0 auto;
+                            height: 18px;
+                            line-height: 18px;
+                            color: #fff;
+                            border-radius: 0 0 5px 5px;
+                            overflow: hidden;
+                            background-color: #FF6A6E;
+                            font-size: 12px;
+                        }
+                    }
+
+                }
+            }
+
+        }
+    }
+}
+.pagi{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
 
 

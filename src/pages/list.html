@@ -9,13 +9,15 @@
     <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../lib/swiper/css/swiper.min.css">
     <link rel="stylesheet" href="../css/list.css">
+    <link rel="stylesheet" href="../css/pagination.css">
 </head>
 
 <body>
     <script src="../lib/jquery/dist/jquery.min.js"></script>
     <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../lib/swiper/js/swiper.min.js"></script>
-
+    
+    <script src="../js/pagination.js"></script>
     <div class="main">
         <div class="main-con">
             <div class="main-top">
@@ -136,7 +138,7 @@
 
                                 <a href="">热度</a>
                             </li>
-                            <li>
+                            <li class='sort'>
 
                              <a href="">价格
                                  <i></i>
@@ -149,8 +151,385 @@
                     </div>
                 </div>
             </div>
+
+            <div class="content">
+                <ul>
+                    
+                </ul>
+            </div>
+            <div class="pagi m-style"></div>
         </div>
     </div>
+    <script>
+        var flag = true
+
+  // 2-2. 准备一个变量接收数组
+  var list2 = []
+        getList()
+    function getList() {
+      $.ajax({
+        url: '../json/huawei-list.json',
+        dataType: 'json',
+        success: function (res) {
+
+          // 2. 渲染分页器
+          $('.pagi').pagination({
+            pageCount: Math.ceil(res.length / 20), // 总页数
+            current: 1, // 当前页
+            jump: true,
+            coping: true,
+            homePage: '首页', // 首页按钮的文本
+            endPage: '末页', // 末页按钮的文本
+            prevContent: '上页',
+            nextContent: '下页',
+            callback: function (api) { // 当你切换页面的时候会触发
+              // api.getCurrent() 获取当前是第几页
+              // console.log(api.getCurrent())
+              let curr = api.getCurrent()
+
+              //   slice 方法包前不包后
+              var list = res.slice((curr - 1) * 20, curr * 20)
+             
+
+              // 3-2. 每次使用分页器切换的时候渲染一次
+              bindHtml(list)
+            }
+          })
+
+          // 3. 先把第一页的数据渲染一次
+          bindHtml(res.slice(0, 20))
+
+
+          list2 = res
+
+        }
+      })
+    }
+    function bindHtml(list) {
+      console.log(list)
+      // 根据 list 数组渲染页面就可以了
+
+      let str = ''
+        let id = 0;
+      list.forEach(item => {
+        str += `
+    <li data-id=${id++}>
+                        <div><a href="">
+                            <p><img src="https://res.vmallres.com/pimages//product/6901443293780/428_428_1555465196488mp.png" alt=""></p>
+                            <p>${item.briefName}</p>
+                            <p><b>￥${item.price}</b>
+                                <span>多款可选</span></p>`
+          if(item.promoLabels){
+            str+=`<p>`
+            item.promoLabels.forEach(item =>{
+                str+=` <span>
+                        ${item}</span>`
+            })
+            str+=` </p>` 
+                           
+             str+=   `          <p>
+                                <em><span>666</span>人评价</em>
+                                <em><span>100%</span>%好评</em>
+                            </p>`
+                        }  
+        if(item.displayTags){
+            str+=`<p><span>${item.displayTags}</span></p>`
+        }
+                            
+str+=  `
+    </a></div>
+            </li>
+    `
+                          
+  })
+
+  // 3-3. 添加到页面上
+  $('.content > ul').html(str)
+}
+
+//价格排序
+var btn = document.querySelector('.sort')
+    btn.onclick = function () {
+      // 让准备好的变量改变
+      flag = !flag
+
+      // 不管是什么都要把数组重组
+      list2.sort(function (a, b) {
+        if (flag === true) {
+          return a.price - b.price
+        } else {
+          return b.price - a.price
+        }
+      })
+
+      // console.log(list)
+
+      $('.pagi').pagination({
+        pageCount: Math.ceil(list2.length / 20), // 总页数
+        current: 1, // 当前页
+        jump: true,
+        coping: true,
+        homePage: '首页', // 首页按钮的文本
+        endPage: '末页', // 末页按钮的文本
+        prevContent: '上页',
+        nextContent: '下页',
+        callback: function (api) { // 当你切换页面的时候会触发
+          let curr = api.getCurrent()
+          // console.log(curr)
+          var list = list2.slice((curr - 1) * 20, curr * 20)
+          // 3-2. 每次使用分页器切换的时候渲染一次
+          bindHtml(list)
+        }
+      })
+
+      // 3. 先把第一页的数据渲染一次
+      bindHtml(list2.slice(0, 20))
+    }
+
+//点击
+// 3. 事件委托绑定一个事件
+$('.content > ul').on('click', 'li', function () {
+      const id = $(this).data('id')
+      // console.log('我应该找到 list2 这个数组中 id 为 ' + id + ' 的那一条数据')
+
+      // 从总的数据里面找到 id 配套的哪一个数据
+      let data = list2[id]
+
+    //   for (let i = 0; i < list2.length; i++) {
+    //     if (list2[i].id === id) {
+    //       data = list2[i]
+    //       break
+    //     }
+    //   }
+
+      
+      localStorage.setItem('goods_info', JSON.stringify(data))
+
+      // 存储好了以后就跳转页面
+      window.location.href = './detail.html'
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
+        $('.pagi').pagination({
+    pageCount: 3, // 总页数
+    current: 1, // 当前页
+    jump: true,
+    coping: true,
+    homePage: '首页', // 首页按钮的文本
+    endPage: '末页', // 末页按钮的文本
+    prevContent: '上页',
+    nextContent: '下页',
+    callback: function (api) { // 当你切换页面的时候会触发
+      // api.getCurrent() 获取当前是第几页
+      // console.log(api.getCurrent())
+      // 给全局准备的变量赋值
+      // 你切换一次, 全局变量就改变一次
+     
+
+      // 每一次改变执行一次 getList
+      
+    }
+  })
+
+  $.ajax({
+    url: '../json/huawei-list.json',
+    
+        
+    dataType: 'json',
+    success: function (res) {
+        let str = ''
+
+// 3-2. 组装字符串
+res.forEach(item => {
+  str += `
+  <li>
+                      <div><a href="">
+                          <p><img src="https://res.vmallres.com/pimages//product/6901443293780/428_428_1555465196488mp.png" alt=""></p>
+                          <p>${item.briefName}</p>
+                          <p><b>￥${item.price}</b>
+                              <span>多款可选</span></p>`
+        if(item.promoLabels){
+          str+=`<p>`
+          item.promoLabels.forEach(item =>{
+              str+=` <span>
+                      ${item}</span>`
+          })
+          str+=` </p>`
+        }                      
+                          
+                          `
+                          <p>
+                              <em><span>666</span>人评价</em>
+                              <em><span>100%</span>%好评</em>
+                          </p>`
+      if(item.displayTags){
+          str+=`<p><span>${item.displayTags}</span></p>`
+      }
+                          
+str+=  `
+  </a></div>
+          </li>
+  `
+                        
+})
+
+// 3-3. 添加到页面上
+$('.content > ul').html(str)
+}
+    
+})
+
+/*
+     let currPage = 1 // 默认是第一页
+
+// 2-3. 准备一个变量当作开关
+let flag = true
+
+// 1. 获取列表数据
+getList()
+
+function getList() {
+  // 发送请求
+  $.ajax({
+    url: '/huawei-list',
+    data: {
+        lang: 'zh-CN',
+        country: 'CN',
+        portal: 1,
+        keyword: 36,
+        pageSize: 20,
+        pageNum: currPage,// 用的是全局变量
+        searchSortField: 0,
+        searchSortType: 'desc',
+        searchFlag: 1,
+        brandType: 0,
+        tid: '7a95e215d21749ccb4ebe10f59372f73',
+        screenParams: {},
+        searchId:'',
+         
+      
+    },
+    dataType: 'json',
+    success: function (res) {
+      console.log(res)
+      // res.pageData.totalPage 最多多少页
+      // res.pageData.resultData 请求回来的数组(渲染页面)
+
+      // 执行渲染页面的时候传递进去的就是第几页的数据
+      bindHtml(res.resultList) // 渲染页面
+
+      // 这个函数, 只有页面打开的第一次请求的时候渲染一次
+      // 在之后切换分页器的请求不需要渲染
+      // if (flag === true) {
+      //   bindPagi(res.pageData.totalPage) // 渲染分页器
+      // }
+
+      // 可以直接写成短路表达式
+      // flag 是 true , 后面的就执行
+      // flag 是 false, 后面的就不执行
+      flag && bindPagi(Math.ceil(res.totalCount/20))
+    }
+  })
+}
+
+function bindHtml(list) {
+  // 3. 渲染页面
+  // console.log(list)
+
+  // 3-1. 准备一个空字符串
+  let str = ''
+
+  // 3-2. 组装字符串
+  list.forEach(item => {
+    str += `
+    <li>
+                        <div><a href="">
+                            <p><img src="https://res.vmallres.com/pimages//product/6901443293780/428_428_1555465196488mp.png" alt=""></p>
+                            <p>${item.briefName}</p>
+                            <p><b>￥${item.price}</b>
+                                <span>多款可选</span></p>`
+          if(item.promoLabels){
+            str+=`<p>`
+            item.promoLabels.forEach(item =>{
+                str+=` <span>
+                        ${item}</span>`
+            })
+            str+=` </p>`
+          }                      
+                            
+                            `
+                            <p>
+                                <em><span>666</span>人评价</em>
+                                <em><span>100%</span>%好评</em>
+                            </p>`
+        if(item.displayTags){
+            str+=`<p><span>${item.displayTags}</span></p>`
+        }
+                            
+str+=  `
+    </a></div>
+            </li>
+    `
+                          
+  })
+
+  // 3-3. 添加到页面上
+  $('.box > ul').html(str)
+}
+
+function bindPagi(totalPage) {
+  // 2. 渲染分页器
+  // console.log(totalPage)
+
+  // 2-3. 把开关关闭
+  flag = false
+
+  $('.pagi').pagination({
+    pageCount: totalPage, // 总页数
+    current: 1, // 当前页
+    jump: true,
+    coping: true,
+    homePage: '首页', // 首页按钮的文本
+    endPage: '末页', // 末页按钮的文本
+    prevContent: '上页',
+    nextContent: '下页',
+    callback: function (api) { // 当你切换页面的时候会触发
+      // api.getCurrent() 获取当前是第几页
+      // console.log(api.getCurrent())
+      // 给全局准备的变量赋值
+      // 你切换一次, 全局变量就改变一次
+      currPage = api.getCurrent()
+
+      // 每一次改变执行一次 getList
+      getList()
+    }
+  })
+}
+*/
+
+
+$('a').attr('href','javascript: ;')
+    </script>
+ 
 </body>
 
 </html>
