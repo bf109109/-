@@ -8,7 +8,12 @@
         url: '../json/huawei-list.json',
         dataType: 'json',
         success: function (res) {
-
+            //在每一条数据中绑定一个id
+            // var indexID=0;
+            // res.forEach(function(item){
+            //     item.id=indexID++;
+            // })
+            
           // 2. 渲染分页器
           $('.pagi').pagination({
             pageCount: Math.ceil(res.length / 20), // 总页数
@@ -43,7 +48,7 @@
       })
     }
     function bindHtml(list) {
-      console.log(list)
+      //console.log(list)
       // 根据 list 数组渲染页面就可以了
 
       let str = ''
@@ -51,7 +56,7 @@
       list.forEach(item => {
         str += `
     <li data-id=${id++}>
-                        <div><a href="">
+                        <div><a href="javascript: ;">
                             <p><img src="https://res.vmallres.com/pimages//product/6901443293780/428_428_1555465196488mp.png" alt=""></p>
                             <p>${item.briefName}</p>
                             <p><b>￥${item.price}</b>
@@ -131,7 +136,7 @@ $('.content > ul').on('click', 'li', function () {
 
       // 从总的数据里面找到 id 配套的哪一个数据
       let data = list2[id]
-
+    console.log(id)
     //   for (let i = 0; i < list2.length; i++) {
     //     if (list2[i].id === id) {
     //       data = list2[i]
@@ -143,7 +148,7 @@ $('.content > ul').on('click', 'li', function () {
       localStorage.setItem('goods_info', JSON.stringify(data))
 
       // 存储好了以后就跳转页面
-      window.location.href = './detail.html'
+      window.open('./detail.html')
     })
 
 
@@ -364,4 +369,4 @@ function bindPagi(totalPage) {
 */
 
 
-$('a').attr('href','javascript: ;')</script></body></html>
+$('a').prop('href','#')</script></body></html>

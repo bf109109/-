@@ -125,9 +125,7 @@ input,a:hover{
                 line-height: 35px;
                 width: 130px;
                 float: right;
-                >a{
-
-                }
+                
             }
         }
 
@@ -308,6 +306,17 @@ input,a:hover{
             outline: 0;
         }
     }
+    >.sj-err{
+        height: 20px;
+        width: 100px;
+        color: red;
+        font-size:18px;
+        line-height: 20px;
+        position: absolute;
+        top: 5px;
+        left: 430px;
+        display: none;
+    }
 }
 //验证
 .yanzheng{
@@ -480,6 +489,17 @@ input,a:hover{
             background: transparent;
         }
     }
+    >.mima-err{
+        height: 20px;
+        width: 100px;
+        color: red;
+        font-size:18px;
+        line-height: 20px;
+        position: absolute;
+        top: 5px;
+        left: 430px;
+        display: none;
+    }
 }
 //确认密码
 .queren-password{
@@ -530,6 +550,17 @@ input,a:hover{
             line-height: 42px;
             background: transparent;
         }
+    }
+    >.mima2-err{
+        height: 20px;
+        width: 100px;
+        color: red;
+        font-size:18px;
+        line-height: 20px;
+        position: absolute;
+        top: 5px;
+        left: 430px;
+        display: none;
     }
 }
 //出生日期

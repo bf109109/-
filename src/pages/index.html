@@ -24,7 +24,7 @@
                     <img src="https://res.vmallres.com/pimages//pages/picImages/V4J6w40GVVs4TdYpYEL5.jpg" title="华为">
                 </a>
 
-                <a href="" title='关闭'></a>
+                <a href="" class='banner-close' title='关闭'></a>
             </div>
         </div>
 
@@ -626,7 +626,7 @@
     <div class="denglu">
         <div class="denglu-con">
             <div class="dl-head">
-                <a href="javascript: ;"></a>
+                <a href="javascript: ;" class='denglu-close'></a>
             </div>
             <div class="dl-main">
                 <div class="dl-m-con">
@@ -889,7 +889,48 @@
             }
 
         })
+        //关闭top-banner
+        $('.banner-close').click(function(){
+            $('#top-banner').css('display','none')
+        })
 
+        //点击登录
+        $('.n-r-denglu').click(function(){
+            $('.denglu').css('display','block')
+        })
+        //关闭登录
+        $('.denglu-close').click(function(){
+            $('.denglu').css('display','none')
+        })
+        //登录
+        $('.dl-btn').click(function(){
+            $.ajax({
+                url: '/huawei-denglu',
+                type: 'post',
+                data: {
+                    shouji: $('.user>input').val(),
+                    password: $('.mima>input').val(),
+                },
+                //dataType: 'json',
+                success: function (res) {
+                   console.log(res)
+                    // window.open('./index.html')
+                    if(res==0){
+                        $('.denglu').css('display','none')
+                    }
+                   
+
+                },
+                
+
+                })
+         })
+         
+         //点击注册
+         $('.n-r-zhuce').click(function(){
+             window.open('./login.html')
+         })
+        $('a').prop('href','javascript: ;')
     </script>
 
 

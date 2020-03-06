@@ -12,6 +12,7 @@ ul,li{
 }
 a{
     text-decoration: none;
+    cursor: pointer;
 }
 input,a:hover{
     outline: 0;
@@ -179,10 +180,12 @@ input,a:hover{
 
     .n-r-denglu{
         float: left;
+        cursor: pointer;
     }
     .n-r-zhuce{
         float: right;
         margin-left: 14px;
+        cursor: pointer;
     }
 }
 //导航加竖线
@@ -1509,6 +1512,7 @@ dl dt dd{
     top: 0;
     left: 0;
     z-index: 1000;
+     display: none;
     
     .denglu-con{
         width: 500px;
@@ -1537,7 +1541,7 @@ dl dt dd{
         >.dl-main{
             width: 500px;
             height: 600px;
-            background-color: #ffffff;
+            background-color: #777;
             opacity: 1;
                 >.dl-m-con{
                     padding-top: 30px;

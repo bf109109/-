@@ -85,7 +85,7 @@ const serverHandler = () => {
              .pipe(webserver({ // 需要一些配置项
                host: 'www.wusunyu.com', // 域名, 这个域名可以自定义
                port: 8080, // 端口号, 0 ~ 65535, 尽量不适用 0 ~ 1023
-               open: './pages/detail.html', // 你默认打开的首页, 从 dist 下面的目录开始书写
+               open: './pages/index.html', // 你默认打开的首页, 从 dist 下面的目录开始书写
                livereload: true, // 自动刷新浏览器 - 热重启
                // 所有的代理配置都在 proxies 里面
                proxies: [
@@ -100,7 +100,16 @@ const serverHandler = () => {
                   // 你直接请求下面这个地址压根也拿不到东西, 因为跨域了
                   target: 'https://openapi.vmall.com/mcp/queryPrd' // 目标, 你要代理的地址
                 },
-                
+                {
+                  source: '/huawei-zhuce', // 源, 你的代理标识符
+                  // 你直接请求下面这个地址压根也拿不到东西, 因为跨域了
+                  target: 'http://127.0.0.1:80/zhuce.php' // 目标, 你要代理的地址
+                },
+                {
+                  source: '/huawei-denglu', // 源, 你的代理标识符
+                  // 你直接请求下面这个地址压根也拿不到东西, 因为跨域了
+                  target: 'http://127.0.0.1:80/denglu.php' // 目标, 你要代理的地址
+                },
                ]
              })) // 开启服务器
 }

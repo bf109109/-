@@ -78,6 +78,7 @@
                         </label>
                         <input type="text">
                     </div>
+                    <div class="sj-err">输入错误</div>
                 </div>
                 <!-- 验证 -->
                 <div class="yanzheng">
@@ -112,6 +113,7 @@
                         <label for=""><div>请输入密码</div></label>
                         <input type="password">
                     </div>
+                    <div class='mima-err'>格式不对</div>
                 </div>
                 <!-- 确认密码 -->
                 <div class="queren-password">
@@ -122,6 +124,7 @@
                             <label for=""><div>请再次输入密码</div></label>
                             <input type="password">
                         </div>
+                        <div class="mima2-err">与前面密码不一致</div>
                 </div>
                 <!-- 出生日期 -->
                 <div class="data">
@@ -146,5 +149,77 @@
             
         </div>
     </div>
+    <script>
+        //验证手机号1开头，11位
+        var inpshouji=null;
+        $('.sj-right>input').blur(function(){
+            inpshouji=$('.sj-right>input').val()
+           
+            if(/^1\d{10}$/.test(inpshouji)){
+                $('.sj-err').css('display','none')
+            }else{
+                $('.sj-err').css('display','block')
+            }
+            
+        })
+
+        
+        $('.sj-right>input').focus(function(){
+            
+                $('.sj-err').css('display','none')
+        })
+       
+       //验证密码8位单词字符
+       var password1=null;
+        $('.pw-right>input').blur(function(){
+            password1=$('.pw-right>input').val()
+            //console.log(/\w{8}$/.test(inp))
+            if(/^\w{8}$/.test(password1)){
+                $('.mima-err').css('display','none')
+            }else{
+                $('.mima-err').css('display','block')
+            }
+            
+        })
+
+       $('.pw-right>input').focus(function(){
+            
+            $('.mima-err').css('display','none')
+         })
+        
+    //再次验证密码
+         $('.qr-pw-right>input').blur(function(){
+           
+           var inp2=$('.qr-pw-right>input').val()
+            if(inp2==password1){
+                $('.mima2-err').css('display','none')
+            }else{
+                $('.mima2-err').css('display','block')
+            }
+            
+        })
+
+       $('.qr-pw-right>input').focus(function(){
+            
+            $('.mima2-err').css('display','none')
+         })
+
+         $('.zhuce>input').click(function(){
+            $.ajax({
+                url: '/huawei-zhuce',
+                type: 'post',
+                data: {
+                    shouji: inpshouji,
+                    password: password1,
+                },
+                //dataType: 'json',
+                success: function (res) {
+                    //console.log(res)
+                    window.open('./index.html')
+                }
+                })
+         })
+   
+    </script>
 </body>
 </html>

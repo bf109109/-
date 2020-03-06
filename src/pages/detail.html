@@ -129,8 +129,20 @@
                         <div class="fl" id="pro-sku-code2">2601010181301</div>
                               
                     </div>
+                    <div class="xinxi">
 
-                    
+                    </div>
+                    <div class="btn-gouwu">
+                        <div class="btn-g-l">
+                            <input type="text">
+                            <p>
+                                <a href="">+</a><a href="">-</a>
+                            </p>
+                        </div>
+                        <div class="btn-g-r">
+                            <a href="">加入购物车</a><a href="">立即下单</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -138,17 +150,108 @@
     
     <script>
     //渲染页面
-        var data= JSON.parse(localStorage.getItem('goods_info'))
-        console.log(data)
-        if(data==null){
+        var info= JSON.parse(localStorage.getItem('goods_info'))
+        info.isSelect = true
+        console.log(info)
+        if(!info){
             location.href='./list.html'
 
         }else{
-            $('.detail-top>span').text(data.briefName)
-        $('.product-slogan>span:nth-of-type(2)').text(data.skuName)
-        $('.price>div:nth-child(2)>span').text('￥'+data.price)
-        $('.sp-id>div').text(data.skuCode)
+            $('.detail-top>span').text(info.briefName)
+        $('.product-slogan>span:nth-of-type(2)').text(info.skuName)
+        $('.price>div:nth-child(2)>span').text('￥'+info.price)
+        $('.sp-id>div').text(info.skuCode)
         }
+        
+        $('.btn-g-l>input').val(1)
+        info.number=1
+        localStorage.setItem('goods_info',JSON.stringify(info))
+        //点击数量加减
+        $('.btn-g-l>p>a:nth-child(1)').click(()=>{
+              info.number++;
+                $('.btn-g-l>input').val(info.number)
+                localStorage.setItem('goods_info',JSON.stringify(info))
+        })
+        $('.btn-g-l>p>a:nth-child(2)').click(()=>{
+              info.number--;
+              if(info.number<=1){
+                info.number=1
+                $('.btn-g-l>input').val(1)
+                localStorage.setItem('goods_info',JSON.stringify(info))
+              }else{
+                $('.btn-g-l>input').val(info.number)
+                localStorage.setItem('goods_info',JSON.stringify(info))
+              }
+                
+                
+        })
+
+        //点击购物车
+
+        $('.btn-g-r>a:nth-child(1)').click(() => {
+      
+      const cartList = JSON.parse(localStorage.getItem('cartList')) || []
+
+      // 象数组里面把本条数据添加进去
+      // 4-4. 判断有没有这个数据
+      //      每一个数据都有一个自己的 id
+      //      只要看数组里面有没有 id 一样的数据, 就知道有没有这个数据了
+      //      数组常用方法有一个叫做 some 的方法
+      //      返回值:
+      //        true: 表示数组里面有这个信息
+      //        false: 表示数组里面没有这个信息
+      let exits = cartList.some(item => {
+        // 数组里面每一个的 id === 本页面的这条数据的 id
+        return item.productId === info.productId
+      })
+    //console.log(exits)
+      // console.log(exits)
+      if (exits) {
+        // 表示有这个信息了, 我们要让 number ++
+        // console.log('已经存在 number ++')
+        // 找到这个信息给他 number ++
+        let data = null
+        for (let i = 0; i < cartList.length; i++) {
+          if (cartList[i].productId === info.productId) {
+            // data = cartList[i]
+            //cartList[i].number++
+            //data=info
+            //cartList[i]=JSON.parse(localStorage.getItem('goods_info'))
+            var num1=cartList[i].number+=info.number
+            data=cartList[i]
+            data.isSelect=info.isSelect
+            data.number=num1
+            // cartList[i].number++
+
+            localStorage.setItem('cartList', JSON.stringify(cartList))
+            // cartList.push(JSON.stringify(localStorage.getItem('goods_info')))
+            break
+          }
+        }
+        // data 就是我找到的这个信息
+        //data.number++
+
+        // 4-5. 数量添加的时候, 小计价格要改变
+        //data.xiaoji = data.number * data.price // 数量 * 单价
+      } else {
+        // 表示没有这个信息, 直接 push 就可以了
+        // push 之前, 象里面添加一个 number 信息为 1
+        //info.number = 1
+
+        // 4-5. 多添加一些信息
+        //info.xiaoji = info.price // 因为默认是第一个, 小计就是单价
+        info.isSelect = true // 默认选中
+        cartList.push(info)
+        // console.log(ocalStorage.getItem('goods_info'))
+      }
+
+      // 在存储到 localStorage 里面
+      localStorage.setItem('cartList', JSON.stringify(cartList))
+      window.open('./shopping.html')
+    })
+
+
+
         //放大镜
         $('.pt-c').mouseenter(function(){
             //显示
@@ -158,6 +261,7 @@
         $('.pt-c').mouseleave(function(){
             //显示
             $('.ydfk').css('display','none')
+            .css('top',0).css('left',0)
             $('.pt-datu').css('display','none')
         })
         $('.pt-c').mousemove(function(e){
@@ -180,7 +284,7 @@
 		if(y>$('.pt-c').height()-$('.ydfk').height()){
 			y = $('.pt-c').height()-$('.ydfk').height();
         }
-        console.log(x,y)
+        //console.log(x,y)
         $('.ydfk').css('left',x+'px')
         $('.ydfk').css('top',y+'px')
 
@@ -193,6 +297,9 @@
         $('.pt-datu>img').css('left',-left+"px")
         $('.pt-datu>img').css('top',-top+"px")
         })
+
+
+        $('a').prop('href','javascript: ;')
     </script>
 </body>
 
