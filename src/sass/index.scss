@@ -470,6 +470,62 @@ input,a:hover{
         }
     }
 }
+.slider-xinxi:before,.slider-xinxi:after{
+    content: '';
+    display: table;
+    clear: both;
+}
+// .slider-xinxi::before,.slider-xinxi::after{
+//     content:"";clear:both;height:0;width:100%;overflow:hidden;display:block;visibility:hidden
+// }
+.slider-xinxi{
+    display: none;
+    height: 440px;
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 220px;
+    z-index: 3333;
+    >ul{
+        height: 440px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        background: white;
+        align-items: left;
+        width: 750px;
+
+        >li{
+            height: 80px;
+            width: 220px;
+           
+            margin:10px 20px 10px 10px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            div{
+                width: 50px;
+                height: 50px;
+                margin-right: 10px;
+                //align-self: center;
+                >img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            >p{
+                //line-height: 50px;
+                //height: 50px;
+                line-height: 80px;
+                font-size: 14px;
+                color: #333;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
 //home
 //home-left
 #home{
@@ -966,10 +1022,10 @@ input,a:hover{
                     a{
                         display: block;
                         border-radius: 15px;
-                        img{
-                            // height: 100%;
-                            // width: 100%;
-                        }
+                        // img{
+                        //     // height: 100%;
+                        //     // width: 100%;
+                        // }
                     }
                 }
                
@@ -1506,25 +1562,26 @@ dl dt dd{
 .denglu{
     height: 100%;
     width: 100%;
-    background-color: #000;
+    //background-color:#ccc;
     position: fixed!important;
-    opacity: .4;
+    opacity: 1;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 10000;
      display: none;
     
     .denglu-con{
         width: 500px;
         height: 635px;
         margin: 0 auto;
-        
+        opacity: 1;
         >.dl-head{
             
             height: 30px;
             width: 500px;
             background: red;
             position: relative;
+            opacity: 1;
             >a{
                 display: block;
                 height: 11px;
@@ -1541,7 +1598,7 @@ dl dt dd{
         >.dl-main{
             width: 500px;
             height: 600px;
-            background-color: #777;
+            background-color: white;
             opacity: 1;
                 >.dl-m-con{
                     padding-top: 30px;
@@ -1736,7 +1793,7 @@ dl dt dd{
     display: flex;
     justify-content: center;
     >span{
-        display: inline;
+        display: inline-block;
         width: 42px;
         height: 44px;
         margin: 0 10px;

@@ -72,6 +72,11 @@ const jsonHandler = () => {
   return gulp.src('./src/json/**')
              .pipe(gulp.dest('./dist/json'))
 }
+//php文件
+const phpHandler = () => {
+  return gulp.src('./src/php/**')
+             .pipe(gulp.dest('./dist/php'))
+}
 
 // 7. 书写一个任务, 自动删除 dist 目录
 const delHandler = () => {
@@ -134,6 +139,7 @@ const watchHandler = () => {
   gulp.watch('./src/images/**', imgHandler)
   gulp.watch('./src/sass/*.scss', sassHandler)
   gulp.watch('./src/json/**',jsonHandler)
+  gulp.watch('./src/php/**',phpHandler)
 }
 
 
@@ -148,7 +154,7 @@ const watchHandler = () => {
 //   要在删除完毕 dist 以后, 在执行 css/js/html/... 之类的压缩转移任务
 module.exports.default = gulp.series(
   delHandler,
-  gulp.parallel(cssHandler, jsHandler, htmlHandler, imgHandler, libHandler, sassHandler,jsonHandler),
+  gulp.parallel(cssHandler, jsHandler, htmlHandler, imgHandler, libHandler, sassHandler,jsonHandler,phpHandler),
   serverHandler,
   watchHandler,
   
